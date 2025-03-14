@@ -1,0 +1,22 @@
+networks:
+  container_network:
+    driver: bridge
+
+services:
+  container1:
+    image: sakthisharan/container1
+    volumes:
+      - .:/files
+    ports:
+      - 6000:6000
+    networks:
+      - container_network
+  
+  container2:
+    image: sakthisharan/container2
+    volumes:
+      - .:/files
+    ports:
+      - 6060:6060
+    networks:
+      - container_network
